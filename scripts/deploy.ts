@@ -103,8 +103,7 @@ async function loadingExecCommands(spinnerText: string, command: string): Promis
     console.error('Command failed:', error);
     spinner.text = `${spinnerText} failed.`;
     spinner.fail();
-
-    return '';
+    process.exit(0);
   }
 }
 
@@ -158,6 +157,7 @@ async function checkTextCovered(contract: string) {
   } else {
     spinner.text = `The test coverage of ${contract} contract is not 100%.`;
     spinner.fail();
+    process.exit(0);
   }
 }
 
@@ -183,6 +183,7 @@ async function detectTestExistenceAndCoverage(contract: string) {
   } else {
     spinner.text = `There is no test file for ${contract} contract in the test directory. Please add a test/${contractTestFileName} file.`;
     spinner.fail();
+    process.exit(0);
   }
 }
 
@@ -211,6 +212,7 @@ async function deploymentContractToNetwork(contract: string, network: string) {
   } else {
     spinner.text = `The deployment file for the ${contract} contract is not found in the module directory. Please add a ${IGNITION_MODULE_DIR}/${contractModuleFileName} file.`;
     spinner.fail();
+    process.exit(0);
   }
 }
 
