@@ -3,7 +3,7 @@ import { expect } from "chai";
 
 describe("BlindBox", () => {
   const NFT_PRICE = BigInt("100000000000000"); // 0.0001 MATIC in wei
-  const NFT_TOTAL = 1;
+  const NFT_TOTAL = 10000;
   const NFT_TOKEN_ID = 12;
 
   async function deployOneYearLockFixture() {
@@ -12,7 +12,7 @@ describe("BlindBox", () => {
     // Get the contract factory to deploy the BlindBox contract
     const BlindBox = await hre.ethers.getContractFactory("BlindBox");
     // Deploy the contract and return the deployed contract instance, owner, and addr1
-    const blindBox = await BlindBox.deploy();
+    const blindBox = await BlindBox.deploy('0x9DdfaCa8183c41ad55329BdeeD9F6A8d53168B1B', '1');
     await blindBox.waitForDeployment();
     return { blindBox, owner, addr1 };
   }
