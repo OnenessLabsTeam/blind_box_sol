@@ -1,5 +1,5 @@
-import fs from 'fs';
-import { resolve, join } from 'path';
+import fs from 'node:fs';
+import { resolve, join } from 'node:path';
 
 import inquirer from 'inquirer';
 import {execa} from 'execa';

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "tsx ./scripts/preinstall.ts",
     "start": "hardhat node",
     "clean": "hardhat clean",
     "compile": "npm run clean && hardhat compile",

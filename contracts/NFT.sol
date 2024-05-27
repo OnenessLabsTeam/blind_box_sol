@@ -5,12 +5,15 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract NFT is ERC721, Ownable {
-
     string private _nftBaseURI;
     address private _minter;
     uint256 private _currentTokenId;
 
-    constructor(string memory ntfBaseURI_, string memory name_, string memory symbol_) ERC721(name_, symbol_) Ownable(msg.sender) {
+    constructor(
+        string memory ntfBaseURI_,
+        string memory name_,
+        string memory symbol_
+    ) ERC721(name_, symbol_) Ownable(msg.sender) {
         _nftBaseURI = ntfBaseURI_;
     }
 
@@ -28,7 +31,7 @@ contract NFT is ERC721, Ownable {
         uint256 tokenId = _currentTokenId;
         tokenId++;
         _safeMint(to, tokenId);
-        
+
         _currentTokenId = tokenId;
     }
 
@@ -38,7 +41,9 @@ contract NFT is ERC721, Ownable {
         _burn(tokenId);
     }
 
-    function tokenURI(uint256 tokenId) public view override returns (string memory) {
+    function tokenURI(
+        uint256 tokenId
+    ) public view override returns (string memory) {
         _requireOwned(tokenId);
 
         // string memory baseURI = _baseURI();
@@ -46,9 +51,7 @@ contract NFT is ERC721, Ownable {
         return _nftBaseURI;
     }
 
-
     function _baseURI() internal view override returns (string memory) {
         return _nftBaseURI;
     }
-
 }

@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const web3Provider = new window.ethers.providers.Web3Provider(provider);
   const signer = web3Provider.getSigner();
 
-  const contractAddress = "0x41B80c694A12195f78D3D28873bDf29c921CCD9B";
+  const contractAddress = "0x093faf24E867e75d806aE83d8eCEA757DEB40843";
 
   const abi = [
       "function balanceOf(address account, uint256 id) view returns (uint256)",

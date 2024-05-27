@@ -6,13 +6,11 @@ import {VRFConsumerBaseV2Plus} from "@chainlink/contracts/src/v0.8/vrf/dev/VRFCo
 import {VRFV2PlusClient} from "@chainlink/contracts/src/v0.8/vrf/dev/libraries/VRFV2PlusClient.sol";
 
 contract Openable is VRFConsumerBaseV2Plus {
-
     bool public isOpenActive = false;
 
     address private immutable _VRFCoordinator;
     uint256 private _VRFSubscriptionId;
     uint256 private _randomWord;
-
 
     address[] private _nftAddresses;
 
@@ -26,9 +24,11 @@ contract Openable is VRFConsumerBaseV2Plus {
     event RandomWordsRequested(uint256 requestId);
     event RandomWordsFulfilled(uint256 requestId);
 
-
     // ============ Constructor ============
-    constructor(address VRFCoordinator_, uint256 VRFSubscriptionId_) VRFConsumerBaseV2Plus(VRFCoordinator_) {
+    constructor(
+        address VRFCoordinator_,
+        uint256 VRFSubscriptionId_
+    ) VRFConsumerBaseV2Plus(VRFCoordinator_) {
         _VRFCoordinator = VRFCoordinator_;
         _VRFSubscriptionId = VRFSubscriptionId_;
 
@@ -42,17 +42,26 @@ contract Openable is VRFConsumerBaseV2Plus {
         // _nftCount = [5, 95];
     }
 
-
     // ============ Owner Functions ============
-    function setNFT(address[] calldata nftAddresses, uint256[] calldata weights, uint256[] calldata counts) external onlyOwner {
-        require(nftAddresses.length == weights.length, "Length of nftAddresses and weights should be equal");
-        require(nftAddresses.length == counts.length, "Length of nftAddresses and weights should be equal");
+    function setNFT(
+        address[] calldata nftAddresses,
+        uint256[] calldata weights,
+        uint256[] calldata counts
+    ) external onlyOwner {
+        require(
+            nftAddresses.length == weights.length,
+            "Length of nftAddresses and weights should be equal"
+        );
+        require(
+            nftAddresses.length == counts.length,
+            "Length of nftAddresses and weights should be equal"
+        );
 
         uint256 len = nftAddresses.length;
         uint256 totalWeight = 0;
         uint256 totalCount = 0;
 
-        for (uint i = 0; i < len;) {
+        for (uint i = 0; i < len; ) {
             _nftAddresses.push(nftAddresses[i]);
             _nftWeight.push(weights[i]);
             _nftCount.push(counts[i]);
@@ -71,9 +80,11 @@ contract Openable is VRFConsumerBaseV2Plus {
 
     function setIsOpenActive(bool _isOpenActive) external onlyOwner {
         isOpenActive = _isOpenActive;
-    }    
+    }
 
-    function setVRFSubscriptionId(uint256 VRFSubscriptionId_) external onlyOwner {
+    function setVRFSubscriptionId(
+        uint256 VRFSubscriptionId_
+    ) external onlyOwner {
         _VRFSubscriptionId = VRFSubscriptionId_;
     }
 
@@ -83,7 +94,7 @@ contract Openable is VRFConsumerBaseV2Plus {
         uint32 callbackGasLimit,
         uint32 numWords
     ) external onlyOwner {
-       uint256 requestId = s_vrfCoordinator.requestRandomWords(
+        uint256 requestId = s_vrfCoordinator.requestRandomWords(
             VRFV2PlusClient.RandomWordsRequest({
                 keyHash: keyHash,
                 subId: _VRFSubscriptionId,
@@ -91,7 +102,9 @@ contract Openable is VRFConsumerBaseV2Plus {
                 callbackGasLimit: callbackGasLimit,
                 numWords: numWords,
                 // Set nativePayment to true to pay for VRF requests with Sepolia ETH instead of LINK
-                extraArgs: VRFV2PlusClient._argsToBytes(VRFV2PlusClient.ExtraArgsV1({nativePayment: true}))
+                extraArgs: VRFV2PlusClient._argsToBytes(
+                    VRFV2PlusClient.ExtraArgsV1({nativePayment: true})
+                )
             })
         );
 
@@ -99,14 +112,19 @@ contract Openable is VRFConsumerBaseV2Plus {
     }
 
     // ============ Chainlink VRFConsumerBaseV2 Functions ============
-    function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords) internal override {
+    function fulfillRandomWords(
+        uint256 requestId,
+        uint256[] calldata randomWords
+    ) internal override {
         _randomWord = randomWords[0];
 
         emit RandomWordsFulfilled(requestId);
-    }    
+    }
 
     // ============ User Functions ============
-    function _openBox(uint256 count) internal returns (address[] memory result) {
+    function _openBox(
+        uint256 count
+    ) internal returns (address[] memory result) {
         require(isOpenActive, "Box is not open for raffle");
 
         uint256 totalCount = _totalCount;
@@ -116,14 +134,14 @@ contract Openable is VRFConsumerBaseV2Plus {
         result = new address[](count);
 
         while (count > 0) {
-
-            uint256 randomWeight = uint256(keccak256(abi.encodePacked(randomWord))) % _totalWeight;
+            uint256 randomWeight = uint256(
+                keccak256(abi.encodePacked(randomWord))
+            ) % _totalWeight;
             uint256 i = 0;
             uint256 len = _nftAddresses.length;
 
             while (i < len) {
                 if (randomWeight < _nftWeight[i]) {
-
                     //
                     break;
                 }
@@ -144,7 +162,7 @@ contract Openable is VRFConsumerBaseV2Plus {
                 }
                 nftCount = _nftCount[i];
             }
-            
+
             result[count - 1] = _nftAddresses[i];
 
             count--;
@@ -161,5 +179,4 @@ contract Openable is VRFConsumerBaseV2Plus {
         _randomWord = randomWord;
         _totalCount = totalCount;
     }
-
 }
