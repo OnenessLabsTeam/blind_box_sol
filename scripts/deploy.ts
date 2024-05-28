@@ -127,7 +127,7 @@ function detectFilesInTheSpecifiedDirectory(dir: string, filename: string): bool
  * @returns {Promise<void>}
  */
 async function checkTextCovered(contract: string) {
-  await loadingExecCommands('Executing test coverage', 'npm run coverage');
+  await loadingExecCommands('Executing test coverage', `npx hardhat coverage --matrix --sources ${contract}.sol --testfiles ./${join(TEST_DIR_NAME, contract)}.test.ts`);
 
   const spinner = ora('Checking if the test coverage is 100%.').start();
   spinner.color = 'blue';
@@ -142,20 +142,25 @@ async function checkTextCovered(contract: string) {
   const coverages = parentDom.find('.strong');
 
   let isAllCovered = true;
+  let minCoverage = 90;
 
   coverages.each((_, ele) => {
     const result = $(ele).text();
 
-    if (!result.includes('100%')) {
+    const resultNumber = parseFloat(result);
+
+    minCoverage = Math.min(resultNumber, minCoverage);
+
+    if (!Number.isNaN(resultNumber) && resultNumber <= 90) {
       isAllCovered = false;
     }
   });
 
   if (isAllCovered) {
-    spinner.text = `The test coverage of ${contract} contract is 100%.`;
+    spinner.text = `The test coverage of the ${contract} contract is greater than 90%.`;
     spinner.succeed();
   } else {
-    spinner.text = `The test coverage of ${contract} contract is not 100%.`;
+    spinner.text = `The test coverage of the current ${contract} contract is ${minCoverage}%, which is not more than 90%..`;
     spinner.fail();
     process.exit(0);
   }

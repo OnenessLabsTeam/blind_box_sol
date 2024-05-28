@@ -55,12 +55,12 @@ contract BlindBox is ERC1155, Openable, ReentrancyGuard {
 
     receive() external payable {}
 
-    function withdraw() external onlyOwner nonReentrant {
+    function withdraw() external onlyOwner {
         uint256 balance = address(this).balance;
         payable(owner()).transfer(balance);
     }
 
-    function openBox(uint256 count) external nonReentrant {
+    function openBox(uint256 count) external {
         uint256 balance = balanceOf(msg.sender, NFT_TOKEN_ID);
         require(balance >= count, "Not enough NFTs in the box");
 

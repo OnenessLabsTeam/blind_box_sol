@@ -2,7 +2,7 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-verify";
 
-import networkConfig from './hardhat.network'
+import networkConfig from './hardhat.network';
 
 const config: HardhatUserConfig = {
   solidity: "0.8.24",
@@ -13,7 +13,7 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY
-  }, 
+  },
   sourcify: {
     enabled: true
   }

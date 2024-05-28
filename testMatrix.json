@@ -1,0 +1,288 @@
+{
+ "contracts/BlindBox.sol": {
+  "26": [
+   {
+    "title": "Minting NFTs should work",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "A casting quantity of 0 NFT should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting more NFTs than allowed should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with incorrect payment should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "27": [
+   {
+    "title": "Minting NFTs should work",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting more NFTs than allowed should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with incorrect payment should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "32": [
+   {
+    "title": "Minting NFTs should work",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting more NFTs than allowed should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with incorrect payment should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "34": [
+   {
+    "title": "Minting NFTs should work",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting more NFTs than allowed should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with incorrect payment should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "35": [
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "38": [
+   {
+    "title": "Minting NFTs should work",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting more NFTs than allowed should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with incorrect payment should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "40": [
+   {
+    "title": "Minting NFTs should work",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting more NFTs than allowed should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "42": [
+   {
+    "title": "Minting NFTs should work",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting more NFTs than allowed should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "44": [
+   {
+    "title": "Minting NFTs should work",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting more NFTs than allowed should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "46": [
+   {
+    "title": "Minting NFTs should work",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "Minting more NFTs than allowed should fail",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "47": [
+   {
+    "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "52": [
+   {
+    "title": "should allow owner to set URI",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "53": [
+   {
+    "title": "should allow owner to set URI",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "59": [
+   {
+    "title": "Owner should be able to withdraw funds",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "60": [
+   {
+    "title": "Owner should be able to withdraw funds",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "64": [
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "should fail when the number of blind boxes is insufficient",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "65": [
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   },
+   {
+    "title": "should fail when the number of blind boxes is insufficient",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "67": [
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "69": [
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "71": [
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "73": [
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "74": [
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "76": [
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ],
+  "77": [
+   {
+    "title": "The open blind box function should be effective",
+    "file": "test/BlindBox.test.ts"
+   }
+  ]
+ }
+}

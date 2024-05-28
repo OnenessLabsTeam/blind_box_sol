@@ -25,7 +25,7 @@ describe("BlindBox", () => {
     await blindBox.setNFT([nft1.getAddress()], [100], [100]);
     await nft1.waitForDeployment();
 
-    return { blindBox, owner, addr1 };
+    return { blindBox, nft1, owner, addr1 };
   }
 
   // Check if the NFT minting event is emitted correctly
@@ -194,6 +194,27 @@ describe("BlindBox", () => {
     await expect(blindBox.connect(addr1).setURI(newURI)).to.be.reverted;
   });
 
+  // Verify that the should receive ether and increase contract balance
+  it('should receive ether and increase contract balance', async function () {
+    const { blindBox, addr1 } = await deployOneYearLockFixture();
+
+    // Get the initial balance of the contract
+    const initialBalance = await hre.ethers.provider.getBalance(blindBox.target);
+    
+    // Send some Ethernet coins to the contract
+    const amount = hre.ethers.parseEther('0.1'); // 发送0.1以太币
+    await addr1.sendTransaction({
+      to: blindBox.target,
+      value: amount,
+    });
+    
+    // Get the new balance of the contract
+    const newBalance = await hre.ethers.provider.getBalance(blindBox.target);
+    
+    // Verify that the balance has increased
+    expect(newBalance).to.be.gt(initialBalance);
+  });
+
   // Verify that the owner should be able to withdraw funds
   it("Owner should be able to withdraw funds", async () => {
     // Deploy the contract
@@ -249,7 +270,7 @@ describe("BlindBox", () => {
 
   it("The open blind box function should be effective", async () => {
     // Deploy the blind box contract and get the instance and address
-    const { blindBox, addr1 } = await deployOneYearLockFixture();
+    const { blindBox, nft1, addr1 } = await deployOneYearLockFixture();
 
     // Set the quantity of NFTs to mint
     const quantity = 1;
@@ -277,7 +298,7 @@ describe("BlindBox", () => {
     await openBoxTx.wait();
 
     // Assuming the ERC721 contract address is known and stored as ERC721_CONTRACT_ADDRESS
-    const erc721Contract = await hre.ethers.getContractAt("ERC721", "ERC721_CONTRACT_ADDRESS");
+    const erc721Contract = await hre.ethers.getContractAt("ERC721", nft1.target);
     
     // Check the balance of addr1 in the ERC721 contract
     const balanceOfAddr1 = await erc721Contract.balanceOf(addr1.address);
@@ -286,9 +307,29 @@ describe("BlindBox", () => {
     expect(balanceOfAddr1).to.equal(quantity);
 
     // Check the balance of the ERC1155 token for addr1 to ensure it has been burnt
-    const isBurnt = await blindBox.balanceOf(addr1.address, BigInt("TOKEN_ID_FOR_1155"));
+    const isBurnt = await blindBox.balanceOf(addr1.address, NFT_TOKEN_ID);
     
     // Verify that the ERC1155 token balance for addr1 is zero after opening the box
     expect(isBurnt).to.equal(0);
+  });
+
+  // Verify that the should fail when the number of blind boxes is insufficient
+  it("should fail when the number of blind boxes is insufficient", async () => {
+    // Deploy the blind box contract and get the instance and address
+    const { blindBox, addr1 } = await deployOneYearLockFixture();
+
+    // The number of open blind boxes
+    const quantity = 1;
+
+    // Set the isOpenActive flag to true, allowing the opening of blind boxes
+    const setActiveTx = await blindBox.setIsOpenActive(true);
+
+    // Wait for the setActiveTx transaction to be mined
+    await setActiveTx.wait();
+
+    // Verify the exception when the number of blind boxes is insufficient
+    await expect(
+      blindBox.connect(addr1).openBox(quantity)
+    ).to.be.revertedWith("Not enough NFTs in the box");
   });
 });

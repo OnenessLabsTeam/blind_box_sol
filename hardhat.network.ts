@@ -1,4 +1,4 @@
-import { NetworksUserConfig } from 'hardhat/types'
+import { NetworksUserConfig } from 'hardhat/types';
 import dotenv from 'dotenv';
 
 dotenv.config();

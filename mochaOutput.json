@@ -1,0 +1,182 @@
+{
+ "stats": {
+  "suites": 1,
+  "tests": 12,
+  "passes": 12,
+  "pending": 0,
+  "failures": 0
+ },
+ "tests": [
+  {
+   "title": "Minting NFTs should work",
+   "fullTitle": "BlindBox Minting NFTs should work",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "A casting quantity of 0 NFT should fail",
+   "fullTitle": "BlindBox A casting quantity of 0 NFT should fail",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+   "fullTitle": "BlindBox Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Minting more NFTs than allowed should fail",
+   "fullTitle": "BlindBox Minting more NFTs than allowed should fail",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Minting with incorrect payment should fail",
+   "fullTitle": "BlindBox Minting with incorrect payment should fail",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow owner to set URI",
+   "fullTitle": "BlindBox should allow owner to set URI",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not allow non-owner to set URI",
+   "fullTitle": "BlindBox should not allow non-owner to set URI",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should receive ether and increase contract balance",
+   "fullTitle": "BlindBox should receive ether and increase contract balance",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner should be able to withdraw funds",
+   "fullTitle": "BlindBox Owner should be able to withdraw funds",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Non-owner should not be able to withdraw funds",
+   "fullTitle": "BlindBox Non-owner should not be able to withdraw funds",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "The open blind box function should be effective",
+   "fullTitle": "BlindBox The open blind box function should be effective",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should fail when the number of blind boxes is insufficient",
+   "fullTitle": "BlindBox should fail when the number of blind boxes is insufficient",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  }
+ ],
+ "failures": [],
+ "passes": [
+  {
+   "title": "Minting NFTs should work",
+   "fullTitle": "BlindBox Minting NFTs should work",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "A casting quantity of 0 NFT should fail",
+   "fullTitle": "BlindBox A casting quantity of 0 NFT should fail",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+   "fullTitle": "BlindBox Minting with quantity larger than currently issued but still within the limit should adjust the quantity",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Minting more NFTs than allowed should fail",
+   "fullTitle": "BlindBox Minting more NFTs than allowed should fail",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Minting with incorrect payment should fail",
+   "fullTitle": "BlindBox Minting with incorrect payment should fail",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should allow owner to set URI",
+   "fullTitle": "BlindBox should allow owner to set URI",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should not allow non-owner to set URI",
+   "fullTitle": "BlindBox should not allow non-owner to set URI",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should receive ether and increase contract balance",
+   "fullTitle": "BlindBox should receive ether and increase contract balance",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Owner should be able to withdraw funds",
+   "fullTitle": "BlindBox Owner should be able to withdraw funds",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "Non-owner should not be able to withdraw funds",
+   "fullTitle": "BlindBox Non-owner should not be able to withdraw funds",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "The open blind box function should be effective",
+   "fullTitle": "BlindBox The open blind box function should be effective",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  },
+  {
+   "title": "should fail when the number of blind boxes is insufficient",
+   "fullTitle": "BlindBox should fail when the number of blind boxes is insufficient",
+   "file": "test/BlindBox.test.ts",
+   "currentRetry": 0,
+   "err": {}
+  }
+ ]
+}

@@ -7,8 +7,8 @@
     "preinstall": "tsx ./scripts/preinstall.ts",
     "start": "hardhat node",
     "clean": "hardhat clean",
-    "compile": "npm run clean && hardhat compile",
-    "test": "hardhat test",
+    "compile": "npm run clean && hardhat compile --force",
+    "test": "hardhat test --parallel",
     "coverage": "hardhat coverage",
     "deploy": "tsx ./scripts/deploy.ts"
   },
